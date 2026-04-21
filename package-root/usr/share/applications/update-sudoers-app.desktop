@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.5
+Type=Application
+Name=Update Sudoers Runner
+Comment=Run the update-sudoers service now
+Exec=pkexec /usr/bin/update-sudoers-launcher
+Terminal=true
+Categories=System;Settings;

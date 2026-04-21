@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+chown root:root /usr/lib/update-sudoers-app/update_sudoers.sh
+chmod 700 /usr/lib/update-sudoers-app/update_sudoers.sh
+
+chown root:root /usr/bin/update-sudoers-launcher
+chmod 755 /usr/bin/update-sudoers-launcher
+
+chown root:root /lib/systemd/system/update-sudoers.service
+chmod 644 /lib/systemd/system/update-sudoers.service
+
+chown root:root /usr/share/applications/update-sudoers-app.desktop
+chmod 644 /usr/share/applications/update-sudoers-app.desktop
+
+systemctl daemon-reload
+
+systemctl enable update-sudoers.service >/dev/null || true
+
+if [ "$1" = "configure" ]; then
+    systemctl start update-sudoers.service >/dev/null || true
+fi
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+fi
+
+exit 0

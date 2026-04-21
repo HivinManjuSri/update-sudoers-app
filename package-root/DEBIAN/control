@@ -1,0 +1,11 @@
+Package: update-sudoers-app
+Version: 1.0.0
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: hivin manju sri <local@vm>
+Depends: sudo, passwd, systemd, policykit-1
+Description: Local package for update_sudoers automation
+ Installs the update_sudoers payload script, a systemd service,
+ and a visible launcher for manually starting the service.
+

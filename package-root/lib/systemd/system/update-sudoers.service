@@ -1,0 +1,12 @@
+[Unit]
+Description=Apply sudoers update script
+After=local-fs.target
+ConditionPathExists=/usr/lib/update-sudoers-app/update_sudoers.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/update-sudoers-app/update_sudoers.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

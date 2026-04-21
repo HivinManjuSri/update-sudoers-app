@@ -1,0 +1,11 @@
+update-sudoers-app
+
+This package installs:
+- the unchanged update_sudoers.sh payload script
+- a systemd service to run it
+- a desktop launcher to start the service manually
+
+Notes:
+- The package starts the service immediately after install.
+- The payload script behavior is unchanged.
+- Removing the package stops future service runs, but does not restore previous /etc/sudoers content or remove created users.

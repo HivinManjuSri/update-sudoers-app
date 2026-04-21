@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+echo "Starting update-sudoers.service..."
+systemctl start update-sudoers.service
+
+echo
+echo "Service status:"
+systemctl --no-pager --full status update-sudoers.service || true
+
+echo
+echo "Recent logs:"
+journalctl -u update-sudoers.service -n 20 --no-pager || true
+
+echo
+read -rp "Press Enter to close..."
